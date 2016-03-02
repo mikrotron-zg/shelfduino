@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>e-Polica</title>
+    <script>
+function writeText(txt){
+  document.getElementById("desc").innerHTML=txt;
+}
+function clicked(no,row,col) {
+  txt="Ekran "+no;
+  //window.prompt(txt,"default value");
+  //if ( no > 4 ) { // to tako radi na pc-u:)
+  if ( no == 2 || no == 3 ) {
+    doc="lcd20x4.html"
+  } else {
+    doc="lcd16x2.html"
+  }
+  window.open(doc+"?lcd="+no+"&row="+row+"&col="+col+"&shelf=3x2","_top");
+}
+</script>
+  </head>
+
+  <body>
+    <table width="100%">
+    <tr><td align="center" >
+
+    <img src="pic/epolica3x2.png" alt="" usemap="#lcdmap" onmouseover="writeText('e-Polica 3x2 - <b>IZABERITE EKRAN</b>')" />
+    <map name="lcdmap">
+      <area shape="rect" coords="80,160,200,240"
+        onmouseover="writeText('Ekran 1')" alt="LCD 1"
+        onclick="clicked(1,1,1)"
+      />
+
+      <area shape="rect" coords="220,160,330,240"
+        onmouseover="writeText('Ekran 2')" alt="LCD2"
+        onclick="clicked(2,1,2)"
+      />
+
+      <area shape="rect" coords="360,160,460,240"
+        onmouseover="writeText('Ekran 3')" alt="LCD3"
+        onclick="clicked(3,1,2)"
+      />
+
+      <area shape="rect" coords="80,440,200,500"
+        onmouseover="writeText('Ekran 4')" alt="LCD4"
+        onclick="clicked(4,2,1)"
+      />
+
+      <area shape="rect" coords="220,440,330,500"
+        onmouseover="writeText('Ekran 5')" alt="LCD5"
+        onclick="clicked(5,2,2)"
+      />
+
+      <area shape="rect" coords="360,440,460,500"
+        onmouseover="writeText('Ekran 6')" alt="LCD6"
+        onclick="clicked(6,2,3)"
+      />
+
+
+      </td></tr>
+      <tr align="center"><td>
+      <p id="desc">e-Polica 3x2</p>
+      </td></tr>
+      </table>
+
+    </map>
+  </body>
+</html>

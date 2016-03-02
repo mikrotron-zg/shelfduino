@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>LCD 20x4</title>
+    <script>
+function getParam(name){
+   if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+      return decodeURIComponent(name[1]);
+}
+function writeText(txt){
+  document.getElementById("desc").innerHTML=txt;
+}
+function writeTitle(){
+  row=getParam("row");
+  col=getParam("col");
+  lcd=getParam("lcd");
+  shelf=getParam("shelf");
+  writeText('<a href="epolicademo.html">e-Polica '+shelf+'</a> - <b>LCD'+lcd+': '+row+','+col+'</b>' );
+}
+function writeLCD(row1, row2, row3, row4) {
+  params="?lcd="+getParam("lcd");
+  //params+="&row1="+encodeURIComponent(row1.value)+"&row2="+encodeURIComponent(row2.value)+"&row3="+encodeURIComponent(row3.value)+"&row4="+encodeURIComponent(row4.value);
+  params+="&row1="+row1.value+"&row2="+row2.value+"&row3="+row3.value+"&row4="+row4.value;
+  window.open(encodeURI("epolicademo.html"+params),"_top");
+}
+    </script>
+  </head>
+  <body onload="writeTitle();">
+    <table align="center">
+    <tr><td style="font-size:20px">
+      <p id="desc">e-Polica 3x2</p>
+    </td></tr>
+    </table>
+    <form action="epolicademo.html" method="get">
+      <table background="pic/lcd-gravitech-20x4.jpg" align="center" valign="center" width=1078 height=646 cellspacing=0 cellpadding=0>
+        <tr><td height=150>
+        &nbsp
+        </td></tr>
+        <tr align=center><td height=50>
+        <input id="row1" name="row1" type="text" size=20 maxlength=20 style="font-size:65px;font-family:monospace;"/>
+        </td></tr>
+        <tr align=center><td height=50>
+        <input id="row2" name="row2" type="text" size=20 maxlength=20 style="font-size:65px;font-family:monospace;"/>
+        </td></tr>
+        <tr align=center><td height=50>
+        <input id="row3" name="row3" type="text" size=20 maxlength=20 style="font-size:65px;font-family:monospace;"/>
+        </td></tr>
+        <tr align=center><td height=50>
+        <input id="row4" name="row4" type="text" size=20 maxlength=20 style="font-size:65px;font-family:monospace;"/>
+        </td></tr>
+        <tr><td height=180>
+        &nbsp
+        </td></tr>
+      </table>
+      <table align="center">
+        <tr><td>
+        <input type="button" value="OK" onclick="writeLCD(row1, row2, row3, row4)" style="font-size:50px;"/>
+        </td></tr>
+      </table>
+    </form>
+  </body>
+</html>
+
