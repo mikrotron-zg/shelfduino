@@ -3,7 +3,9 @@
 Shelfduino is software for our electronic shelf.
 
 It consists of two parts:
+
 1) Arduino sketch
+
 2) PC code, written in python
 
 Both are designed written to be minimal.
@@ -16,10 +18,15 @@ These two communicate over USB by a simplistic protocol.
 To start the software, run epolica.py found in src/pyton directory.
 
 Hardware consists of:
+
 1xArduino (any will do, or at least that's the idea)
+
 6xSerial serial character screens (we used 16x2 serial modules by ITead)
+
 6x 4 pin or 3 pin cables (depends on screens you use)
+
 1xUSB cable (one you use with arduino)
+
 
 Not required, but strongly recommended, is Arduino Sensor Shield.
 You may use proto shield instead, but be prepared for hours of soldering.
